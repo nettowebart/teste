@@ -1,0 +1,8 @@
+{
+    "name": "htdocs/filmes",
+    "autoload": {
+        "psr-4": {
+            "App\\" : "src/"
+        }
+    }
+}
