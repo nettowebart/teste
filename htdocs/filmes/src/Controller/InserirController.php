@@ -4,16 +4,17 @@ namespace App\Controller;
 
 
 use App\Model\FilmeRepository;
-// echo 'ta aqui';var_dump($_POST);die;
+
 class InserirController{
 
     private $lista;
-    // public $teste = $_POST;
-    public function __construct() {
 
+    public function __construct($dados) {
+
+        // var_dump($dados);die;
         $this->lista = new FilmeRepository;
-        $this->filtra($_POST);
-        $this->processaRequisicao($_POST);
+
+        $this->processaRequisicao($dados);
     }
 
     public function processaRequisicao($array) {
@@ -54,13 +55,6 @@ class InserirController{
         }
 
     }
-
-    private function filtra($array){
-
-
-
-    }
-    
     
 }
 

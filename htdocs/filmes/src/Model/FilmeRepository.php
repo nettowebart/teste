@@ -16,7 +16,7 @@ class FilmeRepository{
     private function conexaoComBanco() {
         try {
             $this->connection = new PDO('mysql:host=db;dbname=locadora', 'root', 'toor');
-//            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
         } catch (PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
@@ -74,5 +74,18 @@ class FilmeRepository{
         return $rs->fetch(PDO::FETCH_ASSOC);
         
     }
-    
+
+    public function searchForName($nome){
+        // echo 'asas';var_dump($nome);die;
+        $rs = $this->connection->prepare("SELECT id, nome, genero, dataLancamento, valor, imagem FROM filmes WHERE nome = ?");
+        $rs->bindParam(1, $nome);
+        if($rs->execute()){
+            $row = $rs->fetch(PDO::FETCH_OBJ);
+            // echo $row->id;die;
+            // var_dump($row);die;
+            return $row;
+        } else{
+            return 'Não encontrado dados para esse nome : '.$nome;
+        }
+    }
 }

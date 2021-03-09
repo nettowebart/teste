@@ -21,7 +21,7 @@ include __DIR__ . '/../header.php';
 <h2> Formulario Para Inscrever Filmes</h2>
 <p> Filmes, Livros e Series que a Samanthinha quer Ler ou Assistir</p>
 
-<form method="post" action="/filmes/src/Controller/Persistencia.php">
+<form method="post" action="/filmes/src/Controller/Filter.php">
 
     <div class="form-group">
         <label> Nome do Filme ou Livro</label>

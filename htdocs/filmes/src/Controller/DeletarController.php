@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Model\Banco;
+use App\Model\FilmeRepository;
 
 class DeletarController{
 
@@ -10,7 +10,7 @@ class DeletarController{
     public function __construct($id)
     {
 
-        $this->lista = new Banco;
+        $this->lista = new FilmeRepository;
         $this->processaRequisicao($id);
     }
 

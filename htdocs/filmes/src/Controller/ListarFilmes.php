@@ -19,8 +19,12 @@ class ListarFilmes {
         $row = $this->lista->getFilmes();
         return $row;
         
-//         var_dump(is_array($row));
-        
+    }
+
+    public function buscarPorNome($nome){
+        $row = $this->lista->searchForName($nome);
+        // echo 'asj';var_dump($row);die;
+        return $row;
     }
     
     
