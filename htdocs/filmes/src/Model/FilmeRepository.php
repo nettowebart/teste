@@ -81,8 +81,6 @@ class FilmeRepository{
         $rs->bindParam(1, $nome);
         if($rs->execute()){
             $row = $rs->fetch(PDO::FETCH_OBJ);
-            // echo $row->id;die;
-            // var_dump($row);die;
             return $row;
         } else{
             return 'Não encontrado dados para esse nome : '.$nome;
