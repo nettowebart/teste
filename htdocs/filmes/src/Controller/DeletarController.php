@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Model\FilmeRepository;
+use App\Model\Repository\FilmeRepository as RepositoryFilmeRepository;
 
 class DeletarController{
 
@@ -10,7 +11,7 @@ class DeletarController{
     public function __construct($id)
     {
 
-        $this->lista = new FilmeRepository;
+        $this->lista = new RepositoryFilmeRepository;
         $this->processaRequisicao($id);
     }
 

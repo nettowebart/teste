@@ -19,11 +19,6 @@ class Filter
 
     private function filtrar($data)
     {
-        if(isset($data['buscaNome'])){
-            $teste = $this->filtroBuscaNome($data['buscaNome']);
-            // echo 'asui'; var_dump($teste);die;
-            return $teste;
-        }
 
         if (!filter_input(INPUT_POST, "nome", FILTER_SANITIZE_STRING)) {
             echo("Nome invalido");die;
@@ -38,15 +33,4 @@ class Filter
         new InserirController($data);
     }
 
-    private function filtroBuscaNome($nome){
-        // var_dump($nome);die;
-        if (!filter_input(INPUT_POST, "buscaNome", FILTER_SANITIZE_STRING)) {
-            echo ("Nome Invalido");die;
-        } 
-        $lista = new ListarFilmes;
-        $retorno = $lista->buscarPorNome($nome);
-        // var_dump($retorno);die;
-        return (json_encode($retorno));
-
-    }
 }

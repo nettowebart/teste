@@ -2,22 +2,23 @@
 
 namespace App\Controller;
 
-
-use App\Model\FilmeRepository;
-
+use App\Model\Repository\FilmeRepository as RepositoryFilmeRepository;
+// echo 'asj';die;
 class InserirController{
 
     private $lista;
+    
 
     public function __construct($dados) {
 
         // var_dump($dados);die;
-        $this->lista = new FilmeRepository;
+        $this->lista = new RepositoryFilmeRepository;
 
         $this->processaRequisicao($dados);
     }
 
     public function processaRequisicao($array) {
+        // var_dump($array);die;
        if($array['id']){
            $this->atualiza($array);
        }else{
