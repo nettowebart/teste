@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<main>
+
+<section>
+
+    <a href="/filmes/index.php">
+        <button>Retornar</button>
+    </a>
+    
+</section>
+
+<h2> Buscar Filmes por nome</h2>
+
+<form action="" method="post">
+
+    <div class="form-group">
+        <label> Nome do Filme ou Livro</label>
+        <input type="text" id="buscaNome" name="buscaNome" class="form-control"></input>
+    </div>
+
+    <div class="pt-4 form-group ">
+        <button type="button" id="buscar"> Buscar </button>
+    </div>
+
+    <div id="invi">
+
+        <div class="form-group">
+            <label> Nome do Filme ou Livro</label>
+            <input type="text" id="name" name="nome" class="form-control" readonly></input>
+        </div>
+        <div class="form-group">
+            <label> Genero</label>
+            <input type="text" id="genero"class="form-control" name="genero" readonly></input>
+        </div>
+        <div class="form-group">
+            <label> Data de Lançamento</label>
+            <input type="date" id="dataLancamento" class="form-control" name="dataLancamento" readonly></input>
+        </div>
+        <div class="form-group">
+            <label> Valor do DVD, Blu-ray ou Livro</label>
+            <input type="double" id="valor" class="form-control" name="valor" readonly></input>
+        </div>
+
+    </div>
+
+</form>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#invi').hide();
+    $("#buscar").click(function(){
+        trazerDados();
+        // alert($('#buscaNome').val());
+    });
+});
+function trazerDados(){
+
+    var test = $('#buscaNome').val();
+
+    $.ajax(
+    {
+        url: "src/Utils/buscaFilme.php",
+        method: "GET",
+        contentType: "application/json",
+        dataType: "json",
+        data: $('#buscaNome').val(),
+        success: function (data) {
+            if(data === false){
+                alert('Nome não encontrado!');
+                $('#invi').hide();
+            }else{
+                $('#name').val(data.nome);
+                $('#genero').val(data.genero);
+                $('#dataLancamento').val(data.dataLancamento);
+                $('#valor').val(data.valor);
+                $('#invi').show();
+            }
+            
+            
+        },
+        error: function (){
+              
+            }
+        });
+}
+
+
+</script>
+
+
+</main>

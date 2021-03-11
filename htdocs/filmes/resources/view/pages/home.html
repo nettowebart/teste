@@ -1,0 +1,36 @@
+<style>
+    #botao{
+        margin-left: 750px;
+        /* margin-bottom: 25px; */
+    }
+    .table{
+    border-style: double;
+    border-color: coral;
+    background: #ffa;
+    }
+
+</style>
+<body>     
+    <a id="button" href="/filmes/formulario.php">
+        <button>Adicionar Filmes</button>
+    </a>
+    <a id="botao" href="/filmes/buscar.php">
+        <button>Busca Filme por nome</button>
+    </a>
+<hr>
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Genero</th>
+                <th>Valor</th>
+                <th>Data Lançamento</th>
+                <th>imagem</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {{itens}}
+        </tbody>
+    </table>
